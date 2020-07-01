@@ -7,6 +7,10 @@
   width: 100%;
 }
 
+th.sortedBy {
+  background: red;
+}
+
 .table th,
 .table td {
   padding: .625em;

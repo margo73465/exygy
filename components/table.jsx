@@ -1,5 +1,18 @@
 import Row from './row.jsx'
 import styles from './table.module.css'
+import keyToNameMap from '../keyToNameMap.json'
+
+function getSortedRows(data, sortBy) {
+  return data.sort((a, b) => {
+    if ( a[sortBy] < b[sortBy] ) {
+      return -1;
+    }
+    if ( a[sortBy] > b[sortBy] ) {
+      return 1;
+    }
+    return 0;
+  });
+}
 
 class Table extends React.Component {
   constructor(props) {
@@ -18,24 +31,22 @@ class Table extends React.Component {
     });
   }
 
-  getSortedRows(data) {
-    const sortBy = this.state.sortBy;
-    if ( sortBy === 'city' ) {
-      this.data.sort((a, b) => {
-        if ( a.city < b.city ) {
-          return -1;
-        }
-        if ( a.city > b.city ) {
-          return 1;
-        }
-        return 0;
-      });
-    } else {
-      this.data.sort((a, b) => {
-        return a[sortBy] - b[sortBy];
-      });
-    }
-    return this.data;
+  renderColumnHeaders() {
+    return Object.keys(keyToNameMap).map(key => {
+      return (
+        <th key={key}
+            className={this.state.sortBy === key ? 'sortedBy' : ''}
+            data-id={key}
+            onClick={this.handleClick}>
+          {keyToNameMap[key]}
+        </th>
+      );
+    });
+  }
+
+  renderRows() {
+    const sortedRows = getSortedRows(this.data, this.state.sortBy);
+    return sortedRows.map((row, i) => <Row key={i} row={row}/>);
   }
 
   render() {
@@ -43,16 +54,11 @@ class Table extends React.Component {
       <table className={styles.table}>
         <thead>
           <tr>
-            <th data-id="city" onClick={this.handleClick}>City</th>
-            <th data-id="year" onClick={this.handleClick}>Year</th>
-            <th data-id="median_list_rent" onClick={this.handleClick}>Median List Rent</th>
-            <th data-id="median_list_rent_ia" onClick={this.handleClick}>Median List Rent (IA)</th>
-            <th data-id="median_list_rent_percentchg_1994" onClick={this.handleClick}>Median List Rent (% Change From 1994)</th>
-            <th data-id="median_list_rent_ia_percentchg_1994" onClick={this.handleClick}>Median List Rent (IA % change since 1994)</th>
+            {this.renderColumnHeaders()}
           </tr>
         </thead>
         <tbody>
-          {this.getSortedRows().map((row, i) => <Row key={i} row={row}/>)}
+          {this.renderRows()}
         </tbody>
       </table>
     );
