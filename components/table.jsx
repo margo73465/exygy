@@ -35,7 +35,7 @@ class Table extends React.Component {
     return Object.keys(keyToNameMap).map(key => {
       return (
         <th key={key}
-            className={this.state.sortBy === key ? 'sortedBy' : ''}
+            className={this.state.sortBy === key ? styles.sortedBy : ''}
             data-id={key}
             onClick={this.handleClick}>
           {keyToNameMap[key]}
