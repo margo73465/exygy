@@ -1,4 +1,4 @@
-import styles from './metadata.module.css'
+import styles from '../styles/metadata.module.css'
 import keyToNameMap from '../keyToNameMap.json'
 
 export default function Metadata({ rows }) {

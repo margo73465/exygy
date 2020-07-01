@@ -1,5 +1,5 @@
 import Row from './row.jsx'
-import styles from './table.module.css'
+import styles from '../styles/table.module.css'
 import keyToNameMap from '../keyToNameMap.json'
 
 function sortAscending(data, sortBy) {

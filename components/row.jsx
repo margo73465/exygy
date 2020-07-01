@@ -1,4 +1,4 @@
-import styles from './row.module.css'
+import styles from '../styles/row.module.css'
 import keyToNameMap from '../keyToNameMap.json';
 
 function renderData(data, label, index) {
