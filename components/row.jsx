@@ -1,6 +1,8 @@
+import styles from './row.module.css'
+
 export default function Row({ row }) {
   return (
-    <tr>
+    <tr className={styles.row}>
       <td>{row.city}</td>
       <td>{row.year}</td>
       <td>{row.median_list_rent}</td>
