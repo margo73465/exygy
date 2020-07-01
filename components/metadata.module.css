@@ -1,9 +1,41 @@
 .metadata {
-  padding: 12px;
-  background: lavender;
   margin-bottom: 24px;
 }
 
-.metadata h4 {
-  margin: 0;
+.description {
+  margin-bottom: 24px;
+  padding: 12px;
+  border: 1px #e4e4e4 solid;
+  background: #fff;
+}
+
+.description h4 {
+  color: gray;
+  margin: 12px 0;
+}
+
+.description p {
+  margin-bottom: 24px;
+}
+
+.table {
+  background: #fff;
+  padding: 12px;
+  border: 1px #e4e4e4 solid;
+}
+
+.table thead {
+  text-align: left;
+  font-size: 12px;
+  color: gray;
+}
+
+.table tr,
+.table th {
+  padding-right: 48px;
+}
+
+.table tbody {
+  font-size: 20px;
+  color: #1c6387;
 }

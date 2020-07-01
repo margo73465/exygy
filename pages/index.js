@@ -11,8 +11,7 @@ export async function getStaticProps() {
 export default function Home({ data }) {
   return (
     <div className="container">
-      <h1>List Rents – by city</h1>
-      <Metadata />
+      <Metadata rows={data.length}/>
       <Table data={data}/>
     </div>
   )
