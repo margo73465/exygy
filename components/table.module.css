@@ -6,8 +6,10 @@
   width: 100%;
 }
 
-.sortedBy {
-  background: lightgray;
+.arrow {
+  color: lightgray;
+  float: right;
+  font-size: 12px;
 }
 
 .table th,
