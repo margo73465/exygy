@@ -3,25 +3,13 @@ import Row from './row.jsx'
 import styles from '../styles/table.module.css'
 import keyToNameMap from '../keyToNameMap.json'
 
-function sortAscending(data, sortBy) {
+function sortRows(data, sortBy, ascending) {
   return data.sort((a, b) => {
     if ( a[sortBy] < b[sortBy] ) {
-      return -1;
+      return ascending ? -1 : 1;
     }
     if ( a[sortBy] > b[sortBy] ) {
-      return 1;
-    }
-    return 0;
-  });
-}
-
-function sortDescending(data, sortBy) {
-  return data.sort((a, b) => {
-    if ( b[sortBy] < a[sortBy] ) {
-      return -1;
-    }
-    if ( b[sortBy] > a[sortBy] ) {
-      return 1;
+      return ascending ? 1 : -1;
     }
     return 0;
   });
@@ -73,9 +61,7 @@ class Table extends React.Component {
   }
 
   renderRows() {
-    let sortedRows = this.state.sortAscending ?
-      sortAscending(this.data, this.state.sortBy) :
-      sortDescending(this.data, this.state.sortBy);
+    let sortedRows = sortRows(this.data, this.state.sortBy, this.state.sortAscending);
     return sortedRows.map((row, i) => <Row key={i} row={row}/>);
   }
 
