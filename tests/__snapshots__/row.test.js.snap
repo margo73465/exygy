@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a row 1`] = `
+<tr
+  className="row"
+>
+  <td
+    data-label="City"
+  >
+    Alameda
+  </td>
+  <td
+    data-label="County"
+  >
+    Alameda County
+  </td>
+  <td
+    data-label="Year"
+  >
+    2015
+  </td>
+  <td
+    data-label="Median List Rent"
+  >
+    2087
+  </td>
+  <td
+    data-label="Median List Rent (IA)"
+  >
+    2087
+  </td>
+  <td
+    data-label="Median List Rent (% Change Since 1994)"
+  >
+    1.575
+  </td>
+  <td
+    data-label="Median List Rent (IA % Change Since 1994)"
+  >
+    0.4808
+  </td>
+</tr>
+`;

@@ -1,5 +1,6 @@
+import React from 'react'
 import styles from '../styles/row.module.css'
-import keyToNameMap from '../keyToNameMap.json';
+import keyToNameMap from '../keyToNameMap.json'
 
 function renderData(data, label, index) {
   return <td key={index} data-label={label}>{data}</td>;

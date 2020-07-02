@@ -1,3 +1,4 @@
+import React from 'react'
 import fetch from 'node-fetch'
 import Table from '../components/table'
 import Metadata from '../components/metadata'
